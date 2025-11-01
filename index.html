@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BATRASCO Driver Dashboard</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="driver.css" />
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <!-- MAP COLUMN -->
+    <div class="col-map">
+      <div id="map"></div>
+    </div>
+
+    <!-- INFO COLUMN -->
+    <div class="col-info">
+      <h1 class="main-header">
+        <i class="fa-solid fa-truck-front me-2"></i> DRIVER DASHBOARD
+      </h1>
+
+      <div id="gps-status" class="status-online">
+        <span class="status-dot"></span>
+        <span id="gps-text">GPS: Online</span>
+      </div>
+
+      <div class="top-header-container">
+        <div class="driver-info-block">
+          <h5><i class="fa-solid fa-bus me-2"></i> Fare System Status</h5>
+          <p class="m-0">Driver ID: <strong>DRV-4751</strong></p>
+        </div>
+
+        <button class="btn-emergency" onclick="handleEmergency()">
+          <i class="fa-solid fa-triangle-exclamation emergency-icon"></i>
+          EMERGENCY
+        </button>
+      </div>
+
+      <div id="current-stop-info" class="info-box text-center">
+        <p class="mb-1" id="route-direction-display">ROUTE: SM Lipa to Mataas na Kahoy</p>
+        <p class="mb-1 stop-counter-label" id="stop-counter">NEXT DESIGNATED STOP (Stop 1 of 9)</p>
+        <h4 class="highlight-stop" id="next-stop-name">Loading...</h4>
+
+        <div class="distance-eta-container">
+          <p class="distance-info mb-0">
+            <i class="fa-solid fa-location-dot me-1"></i>
+            <span id="stop-distance">-- km</span>
+          </p>
+          <p class="mb-0">
+            ETA: <strong id="stop-eta">-- mins</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="info-box mb-0">
+        <p class="stat-title mb-2">
+          <i class="fa-solid fa-circle-info me-1"></i> TRIP STATISTICS
+        </p>
+
+        <div class="text-center mb-3">
+          <p class="passenger-label m-0">PASSENGERS ONBOARD</p>
+          <p class="passenger-count-display m-0">17</p>
+        </div>
+
+        <button class="btn-base btn-custom mt-2" id="confirmStopBtn">
+          <i class="fa-solid fa-circle-check"></i>
+          CONFIRM ARRIVAL
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMERGENCY MODAL -->
+  <div class="modal fade" id="emergencyModal" tabindex="-1" aria-labelledby="emergencyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="emergencyModalLabel">
+            <i class="fa-solid fa-shield-halved me-2"></i> CONFIRM EMERGENCY
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-dark">
+          <p>Are you sure you want to send an emergency alert? This will notify operations immediately.</p>
+          <p class="text-danger fw-bold">Proceed only if there is an immediate threat or incident.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="confirmAlertBtn">Send Alert Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="driver.js"></script>
+</body>
+</html>
