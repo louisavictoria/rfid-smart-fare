@@ -1,0 +1,317 @@
+  :root {
+            --blue: #293B8B; 
+            --navy: #293855; 
+            --red: #D74B2A; 
+            --orange: #F2B880;
+            --white: #ffffff;
+            --light: #E6E6E6;
+            
+            --main-bg-color: var(--navy); 
+            --panel-color: var(--blue);
+            --accent-color: var(--red);
+            --text-color-dark: #1A1A1A; 
+            --input-bg: var(--white); 
+            --shadow-color: rgba(0, 0, 0, 0.25);
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color-dark); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--main-bg-color);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .main-layout {
+            display: flex;
+            width: 90%;
+            max-width: 1000px;
+            height: 600px;
+            background-color: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px var(--shadow-color);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /*Left Panel*/
+        .left-panel {
+            width: 50%;
+            position: relative;
+            background-image: url('bus.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Blue Overlay */
+        .left-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(40, 57, 132, 0.591); 
+            z-index: 5; 
+        }
+        
+        .left-panel::after {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 150%; 
+            height: 150%; 
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 40% 60% 70% 30% / 40% 50% 50% 60%; 
+            transform: rotate(-15deg);
+            z-index: 6; 
+        }
+
+        .illustration-placeholder {
+            z-index: 10; 
+            text-align: center;
+            opacity: 0.9;
+        }
+        
+        .illustration-placeholder i {
+            font-size: 8em;
+            color: var(--orange); 
+            display: block;
+        }
+
+        .system-branding {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 10px; 
+            width: 100%;
+            justify-content: flex-start;
+        }
+        
+        .system-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; 
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid var(--red); 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 2px;
+            background-color: var(--white);
+        }
+
+        .system-branding p {
+            font-size: 1em;
+            font-weight: 900;
+            line-height: 1.2;
+            text-align: left;
+            color: var(--text-color-dark);
+        }
+        .system-branding p:nth-child(2) {
+            font-size:0.8em; 
+            font-weight:500; 
+            opacity: 0.8;
+        }
+        
+        /* Right Panel (Login Form) */
+        .right-panel {
+            width: 50%;
+            padding: 15px 50px 10px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            background-color: var(--light); 
+        }
+        
+        .login-content-area {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .login-header h2 {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--panel-color); 
+            margin-bottom: 5px; 
+        }
+        
+        /* System Tagline */
+        .system-tagline {
+            font-size: 1.1em;
+            font-weight: 400;
+            color: var(--accent-color); 
+            margin-bottom: 30px; 
+        }
+
+        /* Footer Styles for Right Panel */
+        .right-panel-bottom {
+            margin-top: 5px; 
+            padding-top: 5px;
+            margin-bottom: 20px; 
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 1.4;
+            color: var(--text-color-dark);
+            opacity: 0.8;
+        }
+        
+        .right-panel-bottom p {
+            margin: 2px 0;
+        }
+
+        .right-panel-bottom .secure-access {
+            color: var(--accent-color); 
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .right-panel-bottom a {
+            color: var(--panel-color); 
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Input Styles */
+       .input-label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: var(--text-color-dark);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            background: var(--input-bg);
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 6px;
+            padding: 0 10px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .input-group:focus-within {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(215, 75, 42, 0.5);
+        }
+
+        .icon-prepend {
+            color: var(--panel-color);
+            font-size: 1em;
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .input-group input {
+            flex-grow: 1;
+            padding: 12px 0;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color-dark);
+            background: none;
+        }
+
+        .icon-append {
+            color: rgba(41, 59, 139, 0.5);
+            cursor: pointer;
+            margin-left: 10px;
+            padding: 5px;
+            transition: color 0.2s;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-button:hover {
+            background-color: #c04225;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+    
+
+        /* Responsive adjustments for smaller screens */
+      @media (max-width: 800px) {
+            .main-layout {
+                flex-direction: column;
+                height: auto;
+                max-width: 400px;
+            }
+            
+            .left-panel {
+                width: 100%;
+                height: 180px; 
+                border-radius: 20px 20px 0 0;
+            }
+            
+            .right-panel {
+                width: 100%;
+                padding: 30px;
+            }
+            
+            .system-branding {
+                justify-content: flex-start; 
+            }
+            .right-panel-bottom {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
